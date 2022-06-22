@@ -1,52 +1,62 @@
 import express, { Request, Response } from 'express'
 import cors from 'cors'
+import bodyParser from "body-parser";
+
 const app = express()
 const port = process.env.PORT || 3000
 app.use(cors())
+app.use(bodyParser.json())
 
-export type documentsType = {
+export type candidatesType = {
     id: number
-    dateOfCreation: string
+    dateOfBirth: string
     name: string
-    content: string
+    surname: string
+    fatherName: string
 }
 
-const state:Array<documentsType> = [
+const state:Array<candidatesType> = [
     {
         id: 1,
-        dateOfCreation: 'June',
-        name: '1 doc',
-        content: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+        dateOfBirth: '01-June-2007',
+        name: 'Sergey',
+        surname: 'Ivanov',
+        fatherName: 'Petrovich',
     },
     {
         id: 2,
-        dateOfCreation: 'March',
-        name: '2 doc',
-        content: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+        dateOfBirth: '21-March-2003',
+        name: 'Maxim',
+        surname: 'Petrov',
+        fatherName: 'Sergeevich',
     },
     {
         id: 3,
-        dateOfCreation: 'May',
-        name: '3 doc',
-        content: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+        dateOfBirth: '05-May-2010',
+        name: 'Danil',
+        surname: 'Sidorov',
+        fatherName: 'Maksimovich',
     },
     {
         id: 4,
-        dateOfCreation: 'June',
-        name: '4 doc',
-        content: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+        dateOfBirth: '07-June-2002',
+        name: 'Andrew',
+        surname: 'Volkov',
+        fatherName: 'Petrovich',
     },
     {
         id: 5,
-        dateOfCreation: 'July',
-        name: '5 doc',
-        content: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+        dateOfBirth: '11-July-2001',
+        name: 'Maxim',
+        surname: 'Semenov',
+        fatherName: 'Lvovich',
     },
     {
         id: 6,
-        dateOfCreation: 'August',
-        name: '6 doc',
-        content: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+        dateOfBirth: '30-August-2000',
+        name: 'Mike',
+        surname: 'Surkov',
+        fatherName: 'Alexandrovich',
     },
 ]
 
